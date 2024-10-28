@@ -4,6 +4,7 @@ extends: default
 ignore:
   - secret-*.enc.yml
   - charts/**
+  - .pre-commit-config.yaml
 
 rules:
   line-length:
