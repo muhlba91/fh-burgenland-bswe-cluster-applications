@@ -10,12 +10,12 @@ spec:
     - list:
         elements:
           - name: demo
-          # - name: a
-          # - name: b
-          # - name: c
-          # - name: d
-          # - name: e
-          # - name: f
+          - name: a
+          - name: b
+          - name: c
+          - name: d
+          - name: e
+          - name: f
   template:
     metadata:
       name: "cluster-demo-app-group-{{ .name }}"
