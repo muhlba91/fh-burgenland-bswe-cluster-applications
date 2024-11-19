@@ -42,7 +42,7 @@ spec:
                   hosts:
                     - "demo.{{ .name }}.cluster.classroom.bswe.fh-burgenland.muehlbachler.xyz"
       destination:
-        name: "cluster-{{ .name }}"
+        server: "https://cluster-{{ .name }}.cluster-{{ .name }}"
         namespace: demo
       syncPolicy:
         automated:
