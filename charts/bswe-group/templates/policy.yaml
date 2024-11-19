@@ -153,7 +153,7 @@ spec:
 
 ---
 apiVersion: kyverno.io/v1
-kind: ClusterPolicy
+kind: Policy
 metadata:
   name: restrict-ingress-wildcard
   annotations:
@@ -197,7 +197,7 @@ spec:
 
 ---
 apiVersion: kyverno.io/v1
-kind: ClusterPolicy
+kind: Policy
 metadata:
   name: restrict-ingress-domains
   annotations:
@@ -274,7 +274,7 @@ spec:
 
 ---
 apiVersion: kyverno.io/v1
-kind: ClusterPolicy
+kind: Policy
 metadata:
   name: require-imagepullsecrets
   annotations:
