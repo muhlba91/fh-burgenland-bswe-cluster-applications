@@ -4,7 +4,6 @@ kind: ClusterPolicy
 metadata:
   name: fh-burgenland-sync-vcluster-kubectl
 spec:
-  generateExistingOnPolicyUpdate: true
   rules:
     - name: fh-burgenland-sync-vcluster-kubectl
       match:
@@ -49,6 +48,7 @@ spec:
         name: "vcluster-{{ vclusterName }}"
         namespace: fh-burgenland-argocd
         synchronize: true
+        generateExisting: true
         data:
           kind: Secret
           metadata:
