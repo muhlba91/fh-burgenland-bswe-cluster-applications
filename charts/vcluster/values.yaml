@@ -29,7 +29,7 @@ vcluster-k0s:
       traefik.ingress.kubernetes.io/service.serversscheme: https
     resources:
       limits:
-        memory: 512Mi
+        memory: 1Gi
         cpu: 500m
         ephemeral-storage: 2Gi
     storage:

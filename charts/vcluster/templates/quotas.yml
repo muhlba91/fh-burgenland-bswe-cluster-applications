@@ -6,12 +6,12 @@ metadata:
 spec:
   hard:
     requests.cpu: "3"
-    requests.memory: 3Gi
+    requests.memory: 4Gi
     requests.storage: 4Gi
     requests.ephemeral-storage: 3Gi
     limits.cpu: "6"
     limits.memory: 8Gi
-    limits.ephemeral-storage: 4Gi
+    limits.ephemeral-storage: 6Gi
 
 ---
 apiVersion: v1
