@@ -4,7 +4,7 @@ vcluster-k0s:
     image: k0sproject/k0s:v1.30.4-k0s.0
     resources:
       limits:
-        memory: 1Gi
+        memory: 768Mi
         cpu: 500m
 
   sync:
@@ -29,7 +29,7 @@ vcluster-k0s:
       traefik.ingress.kubernetes.io/service.serversscheme: https
     resources:
       limits:
-        memory: 1Gi
+        memory: 768Mi
         cpu: 500m
         ephemeral-storage: 2Gi
     storage:
