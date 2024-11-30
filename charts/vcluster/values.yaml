@@ -51,10 +51,10 @@ vcluster-k0s:
         cpu: 500m
 
   isolation:
-    enabled: true
+    enabled: false
     resourceQuota:
       enabled: false
     limitRange:
       enabled: false
     networkPolicy:
-      enabled: true
+      enabled: false
