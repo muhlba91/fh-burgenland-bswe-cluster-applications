@@ -6,10 +6,10 @@ metadata:
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
-  generators:
-    - list:
-        elements:
-          - name: demo
+  generators: []
+    # - list:
+    #     elements:
+    #       - name: demo
   template:
     metadata:
       name: "cluster-group-{{ .name }}"
