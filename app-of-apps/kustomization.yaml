@@ -6,8 +6,8 @@ resources:
   - ./repository-bitnami.yaml
   - ./kyverno-vcluster-policy.yaml
   - ./bswe/groups.yaml
-  - ./bswe/docusaurus.yaml
-  - ./bswe/vcluster.yaml
-  - ./bswe/vcluster-hostpath-mapper.yaml
-  - ./bswe/vcluster-demo-app.yaml
-  - ./bswe/cluster-access.yaml
+  # - ./bswe/docusaurus.yaml
+  # - ./bswe/vcluster.yaml
+  # - ./bswe/vcluster-hostpath-mapper.yaml
+  # - ./bswe/vcluster-demo-app.yaml
+  # - ./bswe/cluster-access.yaml
