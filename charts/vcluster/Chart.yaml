@@ -15,5 +15,5 @@ appVersion: "0.0.0"
 
 dependencies:
   - name: vcluster-k0s
-    version: 0.19.8
+    version: 0.19.9
     repository: https://charts.loft.sh
