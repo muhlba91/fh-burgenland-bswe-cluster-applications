@@ -235,42 +235,42 @@ spec:
                 operator: Equals
                 value: false
 
----
-apiVersion: kyverno.io/v1
-kind: Policy
-metadata:
-  name: allowed-images
-  annotations:
-    policies.kyverno.io/title: Allowed Images
-    policies.kyverno.io/category: Other
-    policies.kyverno.io/severity: medium
-    policies.kyverno.io/subject: Pod
-    policies.kyverno.io/description: >-
-      This policy ensures that the only allowed images present in a given Pod, across any container type,
-      come from the designated list.
-  labels:
-    {{- include "bswe-group.labels" . | nindent 4 }}
-spec:
-  validationFailureAction: Enforce
-  background: false
-  rules:
-    - name: good-images
-      match:
-        any:
-        - resources:
-            kinds:
-              - Pod
-      validate:
-        message: >-
-          All images in this Pod must come from an authorized source.
-        deny:
-          conditions:
-            all:
-            - key: {{ "\"{{ images.[containers, initContainers, ephemeralContainers][].*.name[] }}\"" }}
-              operator: AnyNotIn
-              value:
-              - "ghcr.io/fhburgenland-bswe/*"
-              - "nginx"
+# ---
+# apiVersion: kyverno.io/v1
+# kind: Policy
+# metadata:
+#   name: allowed-images
+#   annotations:
+#     policies.kyverno.io/title: Allowed Images
+#     policies.kyverno.io/category: Other
+#     policies.kyverno.io/severity: medium
+#     policies.kyverno.io/subject: Pod
+#     policies.kyverno.io/description: >-
+#       This policy ensures that the only allowed images present in a given Pod, across any container type,
+#       come from the designated list.
+#   labels:
+#     {{- include "bswe-group.labels" . | nindent 4 }}
+# spec:
+#   validationFailureAction: Enforce
+#   background: false
+#   rules:
+#     - name: good-images
+#       match:
+#         any:
+#         - resources:
+#             kinds:
+#               - Pod
+#       validate:
+#         message: >-
+#           All images in this Pod must come from an authorized source.
+#         deny:
+#           conditions:
+#             all:
+#             - key: {{ "\"{{ images.[containers, initContainers, ephemeralContainers][].*.name[] }}\"" }}
+#               operator: AnyNotIn
+#               value:
+#               - "ghcr.io/fhburgenland-bswe/*"
+#               - "nginx"
 
 ---
 apiVersion: kyverno.io/v1
