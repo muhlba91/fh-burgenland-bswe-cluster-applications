@@ -28,8 +28,8 @@ spec:
     services: "3"
     services.nodeports: "0"
     services.loadbalancers: "0"
-    configmaps: "5"
-    secrets: "5"
+    configmaps: "10"
+    secrets: "10"
     persistentvolumeclaims: "0"
 
 ---
