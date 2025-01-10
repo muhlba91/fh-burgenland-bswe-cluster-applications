@@ -73,6 +73,7 @@ spec:
           name: ghcr-credentials
           jsonPointers:
             - /data
+            - /stringData
       source:
         repoURL: https://github.com/muhlba91/fh-burgenland-bswe-cluster-applications
         path: charts/bswe-group
