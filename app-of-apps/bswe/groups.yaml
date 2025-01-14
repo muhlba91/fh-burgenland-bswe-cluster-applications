@@ -63,6 +63,9 @@ spec:
           - name: gl
             accessGroup1: "g"
             accessGroup2: "l"
+          - name: hk
+            accessGroup1: "h"
+            accessGroup2: "k"
   template:
     metadata:
       name: "bswe-group-{{ .name }}-infrastructure"
