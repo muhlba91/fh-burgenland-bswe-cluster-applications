@@ -12,6 +12,60 @@ spec:
           - name: demo
             accessGroup1: "dmuehlbachler"
             accessGroup2: ""
+          - name: a
+            accessGroup1: "a"
+            accessGroup2: ""
+          - name: b
+            accessGroup1: "b"
+            accessGroup2: ""
+          - name: c
+            accessGroup1: "c"
+            accessGroup2: ""
+          - name: d
+            accessGroup1: "d"
+            accessGroup2: ""
+          - name: e
+            accessGroup1: "e"
+            accessGroup2: ""
+          - name: f
+            accessGroup1: "f"
+            accessGroup2: ""
+          - name: g
+            accessGroup1: "g"
+            accessGroup2: ""
+          - name: h
+            accessGroup1: "h"
+            accessGroup2: ""
+          - name: i
+            accessGroup1: "i"
+            accessGroup2: ""
+          - name: j
+            accessGroup1: "j"
+            accessGroup2: ""
+          - name: k
+            accessGroup1: "k"
+            accessGroup2: ""
+          - name: l
+            accessGroup1: "l"
+            accessGroup2: ""
+          - name: aj
+            accessGroup1: "a"
+            accessGroup2: "j"
+          - name: bc
+            accessGroup1: "b"
+            accessGroup2: "c"
+          - name: di
+            accessGroup1: "d"
+            accessGroup2: "i"
+          - name: ef
+            accessGroup1: "e"
+            accessGroup2: "f"
+          - name: gl
+            accessGroup1: "g"
+            accessGroup2: "l"
+          - name: hk
+            accessGroup1: "h"
+            accessGroup2: "k"
   template:
     metadata:
       name: "bswe-group-{{ .name }}-infrastructure"
