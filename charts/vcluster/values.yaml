@@ -1,7 +1,7 @@
 ---
 vcluster-k0s:
   vcluster:
-    image: k0sproject/k0s:v1.32.4-k0s.0
+    image: k0sproject/k0s:v1.32.5-k0s.0
     resources:
       limits:
         memory: 768Mi
