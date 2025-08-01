@@ -231,7 +231,7 @@ spec:
           deny:
             conditions:
               any:
-              - key: {{ "\"{{ contains(element.host, 'student.bswe.fh-burgenland.muehlbachler.xyz') }}\"" }}
+              - key: {{ "\"{{ contains(element.host, 'student.bswe.hochschule-burgenland.muehlbachler.xyz') }}\"" }}
                 operator: Equals
                 value: false
 

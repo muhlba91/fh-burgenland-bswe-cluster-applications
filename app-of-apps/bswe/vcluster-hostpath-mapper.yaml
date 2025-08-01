@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       name: "cluster-hostpath-mapper-group-{{ .name }}"
-      namespace: fh-burgenland-argocd
+      namespace: argocd
     spec:
       project: default
       source:

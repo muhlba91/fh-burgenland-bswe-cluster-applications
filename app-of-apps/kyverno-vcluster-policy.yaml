@@ -2,10 +2,10 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: fh-burgenland-sync-vcluster-kubectl
+  name: sync-vcluster-kubectl
 spec:
   rules:
-    - name: fh-burgenland-sync-vcluster-kubectl
+    - name: sync-vcluster-kubectl
       match:
         any:
           - resources:
@@ -46,7 +46,7 @@ spec:
         kind: Secret
         apiVersion: v1
         name: "vcluster-{{ vclusterName }}"
-        namespace: fh-burgenland-argocd
+        namespace: argocd
         synchronize: true
         generateExisting: true
         data:

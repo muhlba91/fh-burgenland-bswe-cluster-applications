@@ -34,7 +34,7 @@ spec:
             accessGroup2: "{{ .accessGroup2 }}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: fh-bswe-group-{{ .name }}
+        namespace: bswe-group-{{ .name }}
       syncPolicy:
         automated:
           prune: true

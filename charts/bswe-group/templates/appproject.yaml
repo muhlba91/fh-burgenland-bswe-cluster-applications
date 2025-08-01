@@ -2,17 +2,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: fh-bswe-group-{{ .Values.name }}
-  namespace: fh-burgenland-argocd
+  name: bswe-group-{{ .Values.name }}
+  namespace: argocd
   labels:
     {{- include "bswe-group.labels" . | nindent 4 }}
 spec:
   permitOnlyProjectScopedClusters: false
-  description: FH Burgenland BSWE Group {{ .Values.name }}
+  description: Hochschule Burgenland BSWE Group {{ .Values.name }}
   sourceRepos:
     - '*'
   sourceNamespaces:
-    - fh-burgenland-argocd
+    - argocd
     - {{ .Release.Namespace }}
   destinations:
     - namespace: {{ .Release.Namespace }}
@@ -37,10 +37,10 @@ spec:
     - group: '*'
       kind: Ingress
   roles:
-    - name: fh-bswe-group-{{ .Values.name }}
+    - name: bswe-group-{{ .Values.name }}
       description: "privileges to group-{{ .Values.name }}"
       policies:
-        - "p, proj:fh-bswe-group-{{ .Values.name }}:fh-bswe-group-{{ .Values.name }}, applications, *, *, allow"
+        - "p, proj:bswe-group-{{ .Values.name }}:bswe-group-{{ .Values.name }}, applications, *, *, allow"
       groups:
       {{- if .Values.accessGroup1 }}
         - {{ .Values.accessPrefix }}{{ .Values.accessGroup1 }}

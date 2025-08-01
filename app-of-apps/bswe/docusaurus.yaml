@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       name: "docusaurus-preview-{{ .number }}"
-      namespace: fh-burgenland-argocd
+      namespace: argocd
       annotations:
         notifications.argoproj.io/subscribe.on-deployed.github: ""
         revision: "{{ .head_sha }}"
@@ -35,14 +35,14 @@ spec:
             ingress:
               enabled: true
               hosts:
-                - host: "preview-{{ .number }}.docusaurus.demo.bswe.fh-burgenland.muehlbachler.xyz"
+                - host: "preview-{{ .number }}.docusaurus.demo.bswe.hochschule-burgenland.muehlbachler.xyz"
                   paths:
                     - path: /
                       pathType: ImplementationSpecific
               tls:
-                - secretName: docusaurus-tls-cert
+                - secretName: bswe-docusaurus-tls-cert
                   hosts:
-                    - "preview-{{ .number }}.docusaurus.demo.bswe.fh-burgenland.muehlbachler.xyz"
+                    - "preview-{{ .number }}.docusaurus.demo.bswe.hochschule-burgenland.muehlbachler.xyz"
       destination:
         server: https://kubernetes.default.svc
         namespace: docusaurus-preview-{{ .number }}
