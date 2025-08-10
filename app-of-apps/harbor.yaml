@@ -5,6 +5,11 @@ metadata:
   name: harbor
 spec:
   project: default
+  ignoreDifferences:
+    - kind: Secret
+      name: harbor-ingress
+      jsonPointers:
+        - /data
   source:
     path: charts/harbor
     repoURL: https://github.com/muhlba91/fh-burgenland-bswe-cluster-applications
@@ -20,5 +25,6 @@ spec:
       allowEmpty: true
       selfHeal: false
     syncOptions:
+      - RespectIgnoreDifferences=true
       - CreateNamespace=true
       - FailOnSharedResource=true
