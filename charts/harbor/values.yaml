@@ -1,5 +1,8 @@
 ---
 harbor:
+  updateStrategy:
+    type: Recreate
+
   expose:
     type: ingress
     ingress:
