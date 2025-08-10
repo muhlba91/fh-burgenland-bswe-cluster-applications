@@ -40,9 +40,9 @@ harbor:
     type: gcs
     gcs:
       bucket: harbor-a24964b0-32e7-4792-8dc4-5c0b27237405
-      existingSecret: google-credentials # key: GCS_KEY_DATA
+      existingSecret: google-credentials
 
-  existingSecretAdminPassword: admin-password # key: HARBOR_ADMIN_PASSWORD
+  existingSecretAdminPassword: admin-password
 
   ipFamily:
     ipv4:
@@ -58,7 +58,15 @@ harbor:
     enabled: true
     expireHours: 24
 
+  core:
+    existingSecret: harbor-secrets
+    existingXsrfSecret: harbor-secrets
+
+  jobservice:
+    existingSecret: harbor-secrets
+
   registry:
+    existingSecret: harbor-secrets
     credentials:
       username: harbor_registry_user
       htpasswdString: "$apr1$5kvwehx2$4jdTxm8Lt3LlLBfVVeOdy0"
