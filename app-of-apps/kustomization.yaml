@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: argocd
 resources:
   - ./kyverno-vcluster-policy.yaml
+  - ./harbor.yaml
   # - ./bswe/groups.yaml
   # - ./bswe/docusaurus.yaml
   # - ./bswe/vcluster.yaml

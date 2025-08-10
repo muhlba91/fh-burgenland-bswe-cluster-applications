@@ -1,0 +1,24 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: harbor
+spec:
+  project: default
+  source:
+    path: charts/harbor
+    repoURL: https://github.com/muhlba91/fh-burgenland-bswe-cluster-applications
+    targetRevision: HEAD
+    helm:
+      releaseName: harbor
+  destination:
+    namespace: harbor
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
+      - FailOnSharedResource=true
