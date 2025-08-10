@@ -1,0 +1,19 @@
+---
+apiVersion: v2
+name: harbor
+description: Customized harbor chart
+
+version: 1.0.0
+
+type: application
+
+maintainers:
+  - name: Daniel Muehlbachler-Pietrzykowski
+    email: daniel@muehlbachler.io
+
+appVersion: "0.0.0"
+
+dependencies:
+  - name: harbor
+    version: 1.17.2
+    repository: https://helm.goharbor.io
