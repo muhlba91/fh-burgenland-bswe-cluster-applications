@@ -264,12 +264,11 @@ spec:
       - key: {{ "\"{{ images.containers.*.name }}\"" }}
         operator: AnyIn
         value:
-        - "registry.hochschule-burgenland.muehlbachler.xyz/bswe/*"
+        - "registry.hochschule-burgenland.muehlbachler.xyz/*"
     validate:
       message: "An `imagePullSecret` is required when pulling from this registry."
       pattern:
         spec:
           imagePullSecrets:
           - name: "registry-credentials"
-
 {{- end }}

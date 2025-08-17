@@ -22,11 +22,11 @@ The first `Application` being defined needs to reference [`app-of-apps/`](app-of
 
 These are bootstrapping the main applications, referring to the respective `charts/<application>`:
 
-- [`group`](#group): the BSWE group infrastructure
-- [`vcluster`](#vcluster): the vcluster
-- [`vcluster-hpm`](#vcluster-hpm): the vcluster hostpath mapper
+- [`bswe-group`](#bswe-group): the BSWE group infrastructure
 - [`cluster-access`](#cluster-access): the cluster access
 - [`demo-app`](#demo-app): the demo app
+- [`vcluster`](#vcluster): the vcluster
+- [`vcluster-hpm`](#vcluster-hpm): the vcluster hostpath mapper
 
 Each of these applications follows the app-of-apps pattern again, if necessary.
 
@@ -34,21 +34,22 @@ Each of these applications follows the app-of-apps pattern again, if necessary.
 
 ## Charts
 
-### Group
+### BSWE Group
 
-The `group` chart creates necessary infrastructure for one BSWE group. It is patched by an `ApplicationSet` defined in the `app-of-apps` application.
+The `bswe-group` chart creates necessary infrastructure for one BSWE group. It is patched by an `ApplicationSet` defined in the `app-of-apps` application.
 
 It defines the following resources:
 
 - `ResourceQuota`s: the group's namespace quotas (CPU, memory, storage, pods, services, etc.)
 - `LimitRange`: the group's namespace limits (CPU, memory)
-- `Secret`: the group's GHCR credentials (synchronized with the reflector)
+- `Secret`: the group's registry credentials (synchronized with the reflector)
 - `AppProject`: the group's ArgoCD project
 - `Application`: the group's ArgoCD app-of-apps application referencing the BSWE private repository
+- some guardrails as Kyverno policies
 
 ### Cluster Access
 
-The `cluster-access` chart creates an nginx service serving a PVC which contains the `kubeconfig` file for the vclusters.
+The `cluster-access` chart creates an nginx service serving a PVC which contains the encrypted `kubeconfig` file for the vclusters.
 
 ### Demo App
 
