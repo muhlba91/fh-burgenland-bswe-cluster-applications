@@ -11,8 +11,8 @@ spec:
         github:
           owner: muhlba91
           repo: fh-burgenland-bswe-docusaurus
-        filters:
-          - branchMatch: ".*-preview"
+        labels:
+          - preview
         requeueAfterSeconds: 300
   template:
     metadata:
