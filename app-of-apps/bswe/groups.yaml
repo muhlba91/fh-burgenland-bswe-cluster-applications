@@ -19,7 +19,7 @@ spec:
       project: default
       ignoreDifferences:
         - kind: Secret
-          name: ghcr-credentials
+          name: registry-credentials
           jsonPointers:
             - /data
             - /stringData
