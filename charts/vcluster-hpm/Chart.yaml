@@ -15,5 +15,5 @@ appVersion: "0.0.0"
 
 dependencies:
   - name: vcluster-hpm
-    version: 0.2.2
+    version: 0.2.3
     repository: https://charts.loft.sh
