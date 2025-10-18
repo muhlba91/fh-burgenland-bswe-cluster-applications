@@ -6,7 +6,7 @@ resources:
   - ./kyverno-vcluster-policy.yaml
   - ./bswe/groups.yaml
   - ./bswe/docusaurus.yaml
-  # - ./bswe/vcluster.yaml
-  # - ./bswe/vcluster-hostpath-mapper.yaml
+  - ./bswe/vcluster.yaml
+  - ./bswe/vcluster-hostpath-mapper.yaml
   # - ./bswe/vcluster-demo-app.yaml
   # - ./bswe/cluster-access.yaml
