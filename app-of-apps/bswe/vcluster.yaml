@@ -42,6 +42,11 @@ spec:
                     - "{{ .name }}.cluster.classroom.bswe.hochschule-burgenland.muehlbachler.xyz"
                 ingress:
                   host: "{{ .name }}.cluster.classroom.bswe.hochschule-burgenland.muehlbachler.xyz"
+                  spec:
+                    tls:
+                      - hosts:
+                          - "{{ .name }}.cluster.classroom.bswe.hochschule-burgenland.muehlbachler.xyz"
+                        secretName: "vcluster-{{ .name }}-tls"
               exportKubeConfig:
                 server: "https://{{ .name }}.cluster.classroom.bswe.hochschule-burgenland.muehlbachler.xyz"
       destination:
