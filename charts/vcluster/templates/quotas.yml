@@ -5,13 +5,13 @@ metadata:
   name: vcluster-quota-resources
 spec:
   hard:
-    requests.cpu: "3"
-    requests.memory: 4Gi
-    requests.storage: 4Gi
+    requests.cpu: "2"
+    requests.memory: 3Gi
+    requests.storage: 3Gi
     requests.ephemeral-storage: 3Gi
-    limits.cpu: "6"
-    limits.memory: 8Gi
-    limits.ephemeral-storage: 6Gi
+    limits.cpu: "3"
+    limits.memory: 3Gi
+    limits.ephemeral-storage: 5Gi
 
 ---
 apiVersion: v1
@@ -20,12 +20,12 @@ metadata:
   name: vcluster-quota-objects
 spec:
   hard:
-    pods: "15"
+    pods: "10"
     services: "15"
-    services.nodeports: "5"
-    services.loadbalancers: "2"
-    configmaps: "50"
-    secrets: "50"
+    services.nodeports: "3"
+    services.loadbalancers: "0"
+    configmaps: "20"
+    secrets: "15"
     persistentvolumeclaims: "5"
 
 ---
@@ -35,16 +35,16 @@ metadata:
   name: vcluster-limit-range
 spec:
   limits:
-  - default:
-      memory: 128Mi
-      cpu: 500m
-    defaultRequest:
-      memory: 64Mi
-      cpu: 10m
-    min:
-      memory: 8Mi
-      cpu: 5m
-    max:
-      memory: 3Gi
-      cpu: "2"
-    type: Container
+    - default:
+        memory: 64Mi
+        cpu: 10m
+      defaultRequest:
+        memory: 32Mi
+        cpu: 5m
+      min:
+        memory: 8Mi
+        cpu: 1m
+      max:
+        memory: 1Gi
+        cpu: "1"
+      type: Container
