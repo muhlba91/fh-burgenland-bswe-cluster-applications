@@ -20,8 +20,6 @@ vcluster:
     distro:
       k8s:
         enabled: true
-        image:
-          tag: v1.33.4
 
     coredns:
       deployment:
