@@ -1,0 +1,60 @@
+---
+vcluster-k0s:
+  vcluster:
+    image: k0sproject/k0s:v1.34.1-k0s.0
+    resources:
+      limits:
+        memory: 768Mi
+        cpu: 500m
+
+  sync:
+    ingresses:
+      enabled: true
+    persistentvolumes:
+      enabled: true
+    storageclasses:
+      enabled: true
+
+  proxy:
+    metricsServer:
+      nodes:
+        enabled: false
+      pods:
+        enabled: false
+
+  syncer:
+    extraArgs:
+      - --mount-physical-host-paths=true
+    serviceAnnotations:
+      traefik.ingress.kubernetes.io/service.serversscheme: https
+    resources:
+      limits:
+        memory: 768Mi
+        cpu: 500m
+        ephemeral-storage: 2Gi
+    storage:
+      className: zfs
+      size: 1Gi
+
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: cluster-issuer-muehlbachler-xyz
+      external-dns.alpha.kubernetes.io/provider: public
+      external-dns.alpha.kubernetes.io/target: 178.63.69.250,2a01:4f8:121:14e2:100:3:3:1
+      traefik.ingress.kubernetes.io/router.tls: "true"
+
+  coredns:
+    resources:
+      limits:
+        memory: 256Mi
+        cpu: 500m
+
+  isolation:
+    enabled: false
+    resourceQuota:
+      enabled: false
+    limitRange:
+      enabled: false
+    networkPolicy:
+      enabled: false

@@ -28,15 +28,16 @@ spec:
         helm:
           releaseName: "cluster-{{ .name }}"
           valuesObject:
-            vcluster-k0s:
-              ingress:
-                host: "{{ .name }}.cluster.classroom.bswe.hochschule-burgenland.muehlbachler.xyz"
-              syncer:
-                extraArgs:
-                  - --tls-san=cluster-{{ .name }}.cluster-{{ .name }}
-                  - --tls-san={{ .name }}.cluster.classroom.bswe.hochschule-burgenland.muehlbachler.xyz
-                  - --out-kube-config-server=https://{{ .name }}.cluster.classroom.bswe.hochschule-burgenland.muehlbachler.xyz
-                  - --mount-physical-host-paths=true
+            vcluster:
+              controlPlane:
+                proxy:
+                  extraSANs:
+                    - "cluster-{{ .name }}.cluster-{{ .name }}"
+                    - "{{ .name }}.cluster.classroom.bswe.hochschule-burgenland.muehlbachler.xyz"
+                ingress:
+                  host: "{{ .name }}.cluster.classroom.bswe.hochschule-burgenland.muehlbachler.xyz"
+              exportKubeConfig:
+                server: "https://{{ .name }}.cluster.classroom.bswe.hochschule-burgenland.muehlbachler.xyz"
       destination:
         server: https://kubernetes.default.svc
         namespace: "cluster-{{ .name }}"
