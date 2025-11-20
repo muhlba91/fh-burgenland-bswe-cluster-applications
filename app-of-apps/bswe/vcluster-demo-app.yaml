@@ -10,12 +10,6 @@ spec:
     - list:
         elements:
           - name: demo
-          - name: planck
-          - name: newton
-          - name: descartes
-          - name: curie
-          - name: lovelace
-          - name: meitner
   template:
     metadata:
       name: "cluster-demo-app-group-{{ .name }}"
