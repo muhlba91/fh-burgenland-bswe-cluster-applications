@@ -7,11 +7,11 @@ metadata:
     {{- include "bswe-group.labels" . | nindent 4 }}
 spec:
   hard:
-    requests.cpu: 500m
+    requests.cpu: 250m
     requests.memory: 1Gi
     requests.storage: 0Gi
     requests.ephemeral-storage: 0Gi
-    limits.cpu: "1"
+    limits.cpu: "2"
     limits.memory: 2Gi
     limits.ephemeral-storage: 0Gi
 
