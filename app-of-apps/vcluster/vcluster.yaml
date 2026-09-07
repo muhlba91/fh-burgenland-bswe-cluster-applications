@@ -44,15 +44,20 @@ spec:
                 certificateName: "vcluster-{{ .name }}-tls"
             vcluster:
               controlPlane:
+                ingress:
+                  host: "{{ .name }}-alt.cluster.classroom.hochschule-burgenland.muehlbachler.xyz"
+                  spec:
+                    tls:
+                      - hosts:
+                          - "{{ .name }}-alt.cluster.classroom.hochschule-burgenland.muehlbachler.xyz"
+                        secretName: "vcluster-{{ .name }}-alt-tls"
                 proxy:
                   extraSANs:
                     - "cluster-{{ .name }}.cluster-{{ .name }}"
-                    - "{{ .name
-                      }}.cluster.classroom.hochschule-burgenland.muehlbachler.x\
-                      yz"
+                    - "{{ .name }}.cluster.classroom.hochschule-burgenland.muehlbachler.xyz"
+                    - "{{ .name }}-alt.cluster.classroom.hochschule-burgenland.muehlbachler.xyz"
               exportKubeConfig:
-                server: "https://{{ .name
-                  }}.cluster.classroom.hochschule-burgenland.muehlbachler.xyz"
+                server: "https://{{ .name }}.cluster.classroom.hochschule-burgenland.muehlbachler.xyz"
       destination:
         server: https://kubernetes.default.svc
         namespace: "cluster-{{ .name }}"
